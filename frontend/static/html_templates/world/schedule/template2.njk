@@ -1,0 +1,84 @@
+<div class='ext_nav_bar'>
+  {% include "../../static/html_templates/common_templates/ext_nav_bar.njk" %}
+</div>
+<style></style>
+
+
+{% include "../../static/html_templates/common_templates/ext_team_coloring.njk" %}
+
+<body>
+  <div class="PageContent">
+    <div class='worldHeader w3-row background-eee'>
+      {% include "../../static/html_templates/common_templates/scoreboard.njk" %}
+    </div>
+    <nav>
+      <div class="w3-bar team-bar" id="nav-tab" style="background-color: #{{page.PrimaryColor}}; border-bottom: 3px solid #{{page.SecondaryColor}}; border-top: 3px solid #{{page.SecondaryColor}};  color: white; ">
+        <button class='w3-bar-item btn tab nav-tab-button show-small'  id="nav-sidebar-tab" style="">
+          <i class="fas fa-bars"></i>
+        </button>
+        <button class="w3-bar-item btn tab nav-tab-button selected-tab" id="nav-schedule-tab" style="background-color: #{{page.SecondaryColor}};">Schedule</button>
+      </div>
+    </nav>
+    <div id="nav-tabContent">
+      <div class="tab-content" style="display:block;"  id="nav-player-stats">
+        <div class='w3-display-container' >
+
+          <div class='w3-row-padding'>
+
+            <div class='card w3-margin-bottom football-table-filter-bar width100'>
+              <div class="w3-bar left-text team-primary-background-bar">
+                <span class='hide-small'>Filters</span>
+                <span class="" id="filter-dropdown-button">
+                  <i class="fa fa-angle-down" style="padding: 0px 10px; font-size: 15px;"></i>
+                </span>
+              </div>
+              <div class="hidden"  id="football-table-filter-table" style="background-color: white; overflow-y: scroll;">
+                <div class="w3-row-padding flex-start">
+                  {% for table_filter_group_name, table_filter_group in filter_options %}
+                    <div class="col-4 padding-10 football-table-filter-option-group" filter_option="{{table_filter_group_name}}">
+                      <div class="w3-row-padding no-flex-wrap space-between no-padding">
+                        <div class='football-table-filter-display'>{{table_filter_group.display}}</div>
+                        <div class="btn-group">
+                          <button type="button" class="disabled btn btn-light football-filter-clear-row">
+                            <i class="fa fa-ban"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div id="" class="football-filter-option-list no-footer border">
+                        <div class="">
+                          <div class="" style="position: relative; overflow: auto; max-height: 200px; height: 200px; width: 100%;">
+                            <table id="" class="no-footer table table-sm table-borderless" style="width: 100%;">
+                              <tbody>
+                                {% for table_filter_option in table_filter_group.options%}
+                                  <tr class="football-table-filter-option  {{table_filter_option.selected}}" filter_value="{{table_filter_option.display}}">
+                                    <td count='{{table_filter_option.count}}'>
+                                      <div class='w3-row-padding space-between'>
+                                        <span title="{{table_filter_option.display}}">
+                                          {{table_filter_option.display}}
+                                        </span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                {% endfor %}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class='w3-row-padding'>
+          <div class='card width100'>
+            <div class='w3-row-padding background-f1f1f1' id='schedule-box-score-container'></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

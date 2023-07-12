@@ -1,0 +1,82 @@
+<head>
+  <style id="addedTeamStyle">
+
+
+    button.btn {
+      background-color: #{{page.PrimaryColor}} !important;
+      color: white !important;
+      border: 2px solid #{{page.PrimaryColor}} !important;
+    } 
+
+    button.btn.selected-tab {
+      background-color: #{{page.SecondaryColor}} !important;
+      color: white !important;
+      border: 2px solid #{{page.PrimaryColor}} ;
+    } 
+
+    button.btn:not(.no-hover):hover {
+      background-color: white !important;
+      color: #{{page.PrimaryColor}} !important;
+      border: 2px solid #{{page.PrimaryColor}} ;
+
+      transition: all .25s ease;
+    }
+
+    tr.football-table-filter-option.selected, tr.football-table-column-control-option.selected {
+      background-color: #{{page.PrimaryColor|DefaultIfTooLight(page.SecondaryColor)}} !important;
+    }
+
+    .w3-bar button.w3-bar-item {
+      border: none !important;
+    }
+
+    .team-color-font{
+      color: #{{page.PrimaryColor|DefaultIfTooLight(page.SecondaryColor)|DefaultIfTooLight('000')}} !important;
+    }
+
+    .team-primary-background {
+      background-color: #{{page.PrimaryColor}} !important;
+      color: #{{page.PrimaryColor|TeamBackgroundFontColor}} !important;
+      border-top: 4px solid #{{page.SecondaryColor}} !important;
+    }
+
+    .team-primary-background-bar {
+      background-color: #{{page.PrimaryColor}} !important;
+      color: #{{page.PrimaryColor|TeamBackgroundFontColor}} !important;
+      font-size: 12.5px;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-top: 4px solid #{{page.SecondaryColor}} !important;
+    }
+
+    .team-primary-background-bar-generic {
+      font-size: 12.5px;
+      font-weight: bold;
+      padding: 8px 16px;
+    }
+
+    .team-secondary-table-row {
+      background-color: #{{page.SecondaryColor}} !important;
+      color: #{{page.SecondaryColor|TeamBackgroundFontColor}} !important;
+    }
+
+    .team-secondary-background-bar {
+      background-color: #{{page.SecondaryColor}} !important;
+      color: #{{page.SecondaryColor|TeamBackgroundFontColor}} !important;
+      font-size: 12.5px;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-top: 4px solid #{{page.Primary}} !important;
+    }
+
+    .team-secondary-table-row td {
+      color: #{{page.SecondaryColor|TeamBackgroundFontColor}} !important;
+    }
+
+    .team-primary-table-row {
+      background-color: #{{page.PrimaryColor}} !important;
+      color: #{{page.PrimaryColor|TeamBackgroundFontColor}} !important;
+    }
+  </style>
+
+</head>

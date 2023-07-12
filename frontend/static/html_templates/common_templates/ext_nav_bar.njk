@@ -1,0 +1,76 @@
+  <head>
+    <title>{{page.page_title}}</title>
+    <link rel="icon"
+       href="{{page.page_icon}}"/>
+    <meta charset="utf-8">
+  </head>
+
+
+<div WorldID="{{page.WorldID}}" PrimaryColor="{{page.PrimaryColor}}" SecondaryColor="{{page.SecondaryColor}}" style='display:none;' id='DataPassthru'></div>
+<div class="sidebar-fade"></div>
+<div class="w3-sidebar w3-bar-block hide-small" id='sidebar' style="border-left: 4px solid #{{page.PrimaryColor}};">
+  {% for Group in page.NavBarLinks.LinkGroups%}
+  <h3 class='SideNavGroup w3-margin-left'>
+
+    <div class="">
+      {{Group.GroupDisplay|safe}}
+    </div>
+  </h3>
+  <ul class='no-list-style w3-margin-bottom'>
+    {% for Link in Group.GroupLinks%}
+    {% if Link.id == 'nav-search'%}
+    <li>
+      <input worldid="{{Link.world_id}}" type="text" class='w3-input' name="" value="" id='nav-search-input' placeholder="Search" style='padding:8px; width: 90%;'>
+      <button type="submit" id='{{Link.id}}' class='btn' style='width: 30px; margin-left: -40px; vertical-align: baseline; padding: 8px; margin-right: 0px;'><i class="fa fa-search"></i></button>
+    </li>
+    {% else %}
+    <li><a href="{{Link.Href}}" id='{{Link.id}}' class="w3-bar-item btn SideNavItem w3-padding-small {{Link.ClassName}}">{{Link.LinkDisplay}}</a></li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+  {% endfor %}
+</div>
+
+<div class="w3-modal" tabindex="-1" role="dialog" id='SimDayModal'>
+  <div class="s8">
+    <div class="w3-modal-content w3-container">
+      <div class="modal-body w3-row-padding">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="w3-modal" tabindex="-1" role="dialog" id='WeekUpdateModal'>
+  <div class="s8">
+    <div class="w3-modal-content w3-container">
+      <div class="modal-body w3-row-padding">
+        <table class='table table-striped table-hover' style='width: 100%;'>
+
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="player-info-modal"></div>
+<div id="geography-modal"></div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="toast-template" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    {# <div class="toast-header">
+      <img src="..." class="rounded me-2" alt="...">
+      <strong class="me-auto">Bootstrap</strong>
+      <small>11 mins ago</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div> #}
+    <div class="toast-body">
+      
+    </div>
+  </div>
+</div>
